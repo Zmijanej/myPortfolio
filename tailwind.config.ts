@@ -9,10 +9,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        'gray-text':'#F2F7FC'
       },
-    },
+      boxShadow:{
+        'cardShadow': '10px 10px 2px rgba(255,0,0);',
+      },
   },
   plugins: [],
+}
 } satisfies Config;
