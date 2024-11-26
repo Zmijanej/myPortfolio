@@ -3,6 +3,17 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
+import { Pirata_One, Poppins } from 'next/font/google'
+
+const poppins = Poppins({
+  weight: '400',
+  subsets: ['latin'],
+})
+
+const pirata = Pirata_One({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 const ResponsiveNavbar = () => {
   const pathname = usePathname();
@@ -67,11 +78,12 @@ const ResponsiveNavbar = () => {
         <Link 
           href="/" 
           className={`
-            text-2xl font-bold tracking-tighter z-60
+            text-4xl font-bold tracking-tighter z-60
             ${isInversePage ? 'text-black' : 'text-white'}
           `}
+          style={pirata.style}
         >
-          Brend
+          Brend Zmijanej
         </Link>
 
         {/* Desktop Links */}
@@ -82,9 +94,15 @@ const ResponsiveNavbar = () => {
           className="md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          {isMenuOpen 
-            ? <X size={24} className={isInversePage ? 'text-black' : 'text-black'} /> 
-            : <Menu size={24} className={isInversePage ? 'text-white' : 'text-white'} />}
+           
+            <Menu 
+              size={24} 
+              className={`
+                ${isInversePage ? 'text-black' : 'text-white'}
+                transition-all duration-300
+              `} 
+            />
+          
         </button>
       </nav>
 
@@ -97,9 +115,17 @@ const ResponsiveNavbar = () => {
             ${isInversePage ? 'bg-white' : 'bg-black'}
             pt-6 
           `}
+          style={poppins.style}
         >
           <div className="flex flex-col">
             <NavLinks mobile={true} />
+            <X 
+              size={24} 
+              className={`
+                ${isInversePage ? 'text-black' : 'text-white'}
+                transition-all duration-300 
+              `} 
+            />
           </div>
         </div>
       )}
