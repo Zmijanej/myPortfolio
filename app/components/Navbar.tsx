@@ -1,9 +1,10 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import { Menu } from 'lucide-react'
 import { Pirata_One, Poppins } from 'next/font/google'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const poppins = Poppins({
   weight: '400',
@@ -15,9 +16,33 @@ const pirata = Pirata_One({
   subsets: ['latin'],
 })
 
+const dropdownVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: "-100%",
+    transition: {
+      duration: 0.3,
+      ease: "easeInOut"
+    }
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeInOut"
+    }
+  }
+};
+
 const ResponsiveNavbar = () => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  // Close menu when pathname changes
+  useEffect(() => {
+  setIsMenuOpen(false);
+}, [pathname]);
 
   // Define page-specific routes
   const routes = {
@@ -44,7 +69,7 @@ const ResponsiveNavbar = () => {
           onClick={() => setIsMenuOpen(false)}
           className={`
             text-sm uppercase tracking-wider 
-            transition-all duration-300
+            transition-all duration-300 
             ${mobile 
               ? 'block py-4 border-b border-opacity-10 text-center' 
               : 'hidden md:block'}
@@ -54,7 +79,8 @@ const ResponsiveNavbar = () => {
             ${pathname === route 
               ? (isInversePage 
                 ? 'text-black font-semibold' 
-                : 'text-white font-semibold') 
+                : 'text-white font-semibold'
+              ) 
               : ''}
           `}
         >
@@ -68,7 +94,7 @@ const ResponsiveNavbar = () => {
     <>
       <nav 
         className={`
-          top-0 flex justify-around items-center 
+          static top-0 flex justify-around items-center 
           p-6 transition-colors duration-300
           ${isInversePage 
             ? 'bg-white text-black' 
@@ -91,44 +117,67 @@ const ResponsiveNavbar = () => {
 
         {/* Mobile Menu Toggle */}
         <button 
-          className="md:hidden"
+          className="md:hidden z-60"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-           
+          {isMenuOpen ? (
+            <Menu 
+            size={24} 
+            className={`
+              ${isInversePage ? 'text-black' : 'text-white'}
+              
+            `}
+          />
+          ) : (
             <Menu 
               size={24} 
               className={`
                 ${isInversePage ? 'text-black' : 'text-white'}
-                transition-all duration-300
+                
               `} 
             />
-          
+          )}
         </button>
       </nav>
 
       {/* Mobile Dropdown Menu */}
+      <AnimatePresence>
       {isMenuOpen && (
-        <div 
-          className={`
-            fixed top-0 left-0 right-0 bottom-0 z-50 
-            md:hidden
+        <motion.div
+            key="dropdown-menu"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={dropdownVariants} 
+            className={`
+            top-0 left-0 right-0 
+            md:hidden z-60 transition-all duration-300
             ${isInversePage ? 'bg-white' : 'bg-black'}
             pt-6 
           `}
           style={poppins.style}
         >
-          <div className="flex flex-col">
-            <NavLinks mobile={true} />
-            <X 
+          {/* Close Button */}
+          <button 
+            className="absolute top-0 right-0 z-60"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <Menu
               size={24} 
               className={`
-                ${isInversePage ? 'text-black' : 'text-white'}
-                transition-all duration-300 
+                ${isInversePage ? 'text-white' : 'text-black'}
+                transition-all duration-300 absolute inset-0
               `} 
             />
+          </button>
+
+          <div className="flex flex-col z-60">
+            <NavLinks mobile={true} />
           </div>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
+      
     </>
   )
 }
