@@ -1,7 +1,7 @@
 
 export default function Footer() {
   return (
-    <footer className="relative bg-black text-white py-10">
+    <footer id="Footer" className="relative bg-black text-white py-10">
       <div className="container mx-auto px-6">
         {/* Footer Content */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6">

@@ -39,7 +39,7 @@ const About = () => {
             {/* Arched Frame */}
               <div className="relative">
                 <div className="w-full max-w-md mx-auto aspect-square rounded-t-full border-2 border-white p-4">
-                  <div className="w-full h-full rounded-t-full overflow-hidden">
+                  <div className="w-full h-full rounded-t-full overflow-hidden z-0">
                     <Image
                     src="/snake.png"
                     alt="Profile"

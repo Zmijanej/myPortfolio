@@ -7,9 +7,7 @@ import Button from './ui/button';
 const poppins = Poppins({
   weight: '400',
   subsets: ['latin'],
-}
-
-)
+})
 const pirata = Pirata_One({
   weight: '400',
   subsets: ['latin'],

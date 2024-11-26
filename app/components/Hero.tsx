@@ -13,6 +13,7 @@ const pirata = Pirata_One({
 
 const Hero = () => {
   return (
+    <section>
     <div className="bg-black min-h-fit px-6 py-20">
       <div className='max-w-7xl mx-auto'>
         <div className={pirata.className}>
@@ -31,7 +32,7 @@ const Hero = () => {
         </div>
       </div>
     </div>
-    
+    </section>
   );
 };
 
