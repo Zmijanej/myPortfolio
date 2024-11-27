@@ -27,7 +27,7 @@ const PortfolioShowcase = () => {
           src="/snake2.png"
           alt='King Zmija'
           width={500}
-          height={500}
+          height={300}
           className='content-end items-end top-6'
           /> 
           </div>
@@ -44,11 +44,11 @@ const PortfolioShowcase = () => {
         src="/sc.png"
         alt='hi'
         width={500}
-        height={500}
+        height={300}
         className='border-t-1 object-cover w-full'
         />
         <div className='p-4'>
-          <h3 className="text-2xl font-bold mb-4">Design Systems & UX</h3>
+          <h3 className="text-2xl font-bold mb-4">ExploreAlb</h3>
         <p>
           Comprehensive web design system for a 50+ page b2b SaaS marketing website.
         </p>
@@ -60,7 +60,7 @@ const PortfolioShowcase = () => {
         className=" hover:translate-x-[-10px] hover:translate-y-[-10px] hover:shadow-cardShadow border-4 border-white rounded"
       >
         <Image 
-        src="/sc.png"
+        src="/coming_soon.png"
         alt='hi'
         width={500}
         height={300}
@@ -80,7 +80,7 @@ const PortfolioShowcase = () => {
         className=" hover:translate-x-[-10px] hover:translate-y-[-10px] hover:shadow-cardShadow border-4 border-white rounded"
         >
         <Image 
-        src="/sc.png"
+        src="/coming_soon.png"
         alt='hi'
         width={500}
         height={300}

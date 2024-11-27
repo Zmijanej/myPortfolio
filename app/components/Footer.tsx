@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { Send } from 'lucide-react'
 import emailjs from '@emailjs/browser'
+import { usePathname } from 'next/navigation';
 
 // Define interface for form data
 interface FormData {
@@ -19,6 +20,15 @@ const Footer = () => {
     message: ''
   });
   const [status, setStatus] = useState('');
+
+  const pathname = usePathname();
+
+  const routes = {
+    '/selectedwork': '/selectedwork',
+    '/resume': '/resume',
+  };
+
+  const isInversePage = (pathname === routes['/selectedwork']) || (pathname === routes['/resume']);
 
   // Type the event for input and textarea changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -74,29 +84,32 @@ const Footer = () => {
       let errorMessage = 'Failed to send message. Please try again.';
   
   // Check if the error is an instance of Error
-  if (error instanceof Error) {
+    if (error instanceof Error) {
     errorMessage = `Failed to send message. Error: ${error.message}`;
-  } else if (typeof error === 'object' && error && 'text' in error) {
+    } else if (typeof error === 'object' && error && 'text' in error) {
     // If error is an object and has a 'text' property
     errorMessage = `Failed to send message. Error: ${(error as { text: string }).text}`;
-  }
+    }
 
-  setStatus(errorMessage);
-  console.error('Email send error:', error);
+    setStatus(errorMessage);
+    console.error('Email send error:', error);
     }
   };
 
   return (
     <footer 
       id="Footer"
-      className="bg-black text-white py-16 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between"
+      className={`bg-black py-16 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between
+        ${isInversePage 
+          ? 'bg-white text-black' 
+          : 'bg-black text-white'}`}
     >
       {/* Get in Touch Text Section */}
       <div className="w-full md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
         <h2 className="text-4xl md:text-5xl font-bold mb-4">
           Get in Touch
         </h2>
-        <p className="text-lg text-white/70 max-w-md">
+        <p className="text-lg  max-w-full">
           Have a project in mind? Want to collaborate? 
           I&apos;m always open to interesting opportunities 
           and conversations. Drop me a message!
@@ -107,12 +120,12 @@ const Footer = () => {
       <div className="w-full md:w-1/2 max-w-md">
         <form 
           onSubmit={handleSubmit}
-          className="bg-white/10 p-8 rounded-xl space-y-6"
+          className={`p-8 rounded-xl space-y-6`}
         >
           <div>
             <label 
               htmlFor="name" 
-              className="block text-sm mb-2 text-white/70"
+              className="block text-base mb-2"
             >
               Name
             </label>
@@ -123,7 +136,8 @@ const Footer = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full bg-white/10 border border-white/20 rounded-md p-3 text-white focus:outline-none focus:ring-2 focus:ring-white/30"
+              className="w-full border border-black/40 rounded-md p-3  focus:outline-none focus:ring-2 focus:ring-white/30
+              text-black"
               placeholder="Your Name"
             />
           </div>
@@ -131,7 +145,7 @@ const Footer = () => {
           <div>
             <label 
               htmlFor="email" 
-              className="block text-sm mb-2 text-white/70"
+              className="block text-base mb-2"
             >
               Email
             </label>
@@ -142,7 +156,8 @@ const Footer = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full bg-white/10 border border-white/20 rounded-md p-3 text-white focus:outline-none focus:ring-2 focus:ring-white/30"
+              className="w-full border border-black/40 rounded-md p-3  focus:outline-none focus:ring-2 focus:ring-white/30
+              text-black"
               placeholder="your@email.com"
             />
           </div>
@@ -150,19 +165,21 @@ const Footer = () => {
           <div>
             <label 
               htmlFor="message" 
-              className="block text-sm mb-2 text-white/70"
+              className="block text-base mb-2"
             >
               How Can I Help?
             </label>
             <textarea 
               id="message"
               name="message"
+              
               value={formData.message}
               onChange={handleChange}
               required
-              rows={4}
-              className="w-full bg-white/10 border border-white/20 rounded-md p-3 text-white focus:outline-none focus:ring-2 focus:ring-white/30"
+              className="resize-none w-full border border-black/40 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-white/30
+              text-black"
               placeholder="Tell me about your project or opportunity"
+              
             />
           </div>
 
@@ -177,20 +194,20 @@ const Footer = () => {
             </div>
           )}
 
-<button
+          <button
   type="submit"
-  className="w-full bg-white text-black py-3 rounded-md font-semibold flex items-center justify-center space-x-2"
+  className="w-full py-3 rounded-md font-semibold flex items-center justify-center space-x-2 border border-black/40"
   disabled={status === 'Sending...'}
->
-  {status === 'Sending...' ? (
-    <span>Sending...</span>
-  ) : (
-    <>
-      <Send size={20} />
-      <span>Send Message</span>
-    </>
-  )}
-</button>
+          >
+        {status === 'Sending...' ? (
+          <span>Sending...</span>
+        ) : (
+          <>
+            <Send size={20} />
+            <span>Send Message</span>
+          </>
+        )}
+          </button>
 
         </form>
       </div>

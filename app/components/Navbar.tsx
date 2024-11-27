@@ -49,7 +49,6 @@ const ResponsiveNavbar = () => {
     '/': '/',
     '/selectedwork': '/selectedwork',
     '/resume': '/resume',
-    '/get-in-touch': '/get-in-touch'
   };
 
   // Determine if the current page requires inverse colors
