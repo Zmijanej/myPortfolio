@@ -24,11 +24,11 @@ const PortfolioShowcase = () => {
           </div>
           <div className=''>
             <Image
-          src="/snake.png"
+          src="/snake2.png"
           alt='King Zmija'
-          width={600}
-          height={600}
-          className='content-end items-end'
+          width={500}
+          height={500}
+          className='content-end items-end top-6'
           /> 
           </div>
         </div>

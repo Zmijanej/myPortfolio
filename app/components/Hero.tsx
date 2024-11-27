@@ -14,10 +14,10 @@ const pirata = Pirata_One({
 const Hero = () => {
   return (
     <section>
-    <div className="bg-black min-h-fit px-6 py-20">
+    <div className="bg-black min-h-fit px-6 py-36">
       <div className='max-w-7xl mx-auto'>
         <div className={pirata.className}>
-          <h1 className="text-6xl md:text-7xl lg:text-8xl mb-4 ">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl my-6 ">
             Brend Zmijanej
           </h1>
         </div>

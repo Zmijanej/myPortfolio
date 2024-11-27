@@ -94,8 +94,8 @@ const ResponsiveNavbar = () => {
     <>
       <nav 
         className={`
-          static top-0 flex justify-around items-center 
-          p-6 transition-colors duration-300
+          relative max-w-full top-0 flex items-center justify-between
+          p-6 transition-colors duration-300 bg-black
           ${isInversePage 
             ? 'bg-white text-black' 
             : 'bg-black text-white'}
@@ -104,16 +104,17 @@ const ResponsiveNavbar = () => {
         <Link 
           href="/" 
           className={`
-            text-4xl font-bold tracking-tighter z-60
+            text-4xl font-bold tracking-tighter z-60 mx-10
             ${isInversePage ? 'text-black' : 'text-white'}
           `}
           style={pirata.style}
         >
           Brend Zmijanej
         </Link>
-
+        
+        <div className='flex items-center gap-7 mx-14'>
         {/* Desktop Links */}
-        <NavLinks />
+        <NavLinks/>
 
         {/* Mobile Menu Toggle */}
         <button 
@@ -125,19 +126,18 @@ const ResponsiveNavbar = () => {
             size={24} 
             className={`
               ${isInversePage ? 'text-black' : 'text-white'}
-              
             `}
           />
           ) : (
             <Menu 
               size={24} 
               className={`
-                ${isInversePage ? 'text-black' : 'text-white'}
-                
+                ${isInversePage ? 'text-black' : 'text-white'}x x
               `} 
             />
           )}
         </button>
+        </div>
       </nav>
 
       {/* Mobile Dropdown Menu */}
@@ -150,10 +150,10 @@ const ResponsiveNavbar = () => {
             exit="hidden"
             variants={dropdownVariants} 
             className={`
-            top-0 left-0 right-0 
-            md:hidden z-60 transition-all duration-300
+            fixed top-16 left-0 right-0 
+            md:hidden z-[100] transition-all duration-300
             ${isInversePage ? 'bg-white' : 'bg-black'}
-            pt-6 
+            pt-6 overflow-hidden h-fit
           `}
           style={poppins.style}
         >
