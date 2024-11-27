@@ -19,18 +19,18 @@ const pirata = Pirata_One({
 const dropdownVariants = {
   hidden: { 
     opacity: 0, 
-    y: "-100%",
+    y: "-50%",
     transition: {
-      duration: 0.3,
-      ease: "easeInOut"
+      duration: 0.5,
+      ease: "easeIn"
     }
   },
   visible: { 
     opacity: 1, 
     y: 0,
     transition: {
-      duration: 0.3,
-      ease: "easeInOut"
+      duration: 0.5,
+      ease: "easeIn"
     }
   }
 };
@@ -71,7 +71,7 @@ const ResponsiveNavbar = () => {
             text-sm uppercase tracking-wider 
             transition-all duration-300 
             ${mobile 
-              ? 'block py-4 border-b border-opacity-10 text-center' 
+              ? 'block py-4 border-b border-opacity-10' 
               : 'hidden md:block'}
             ${isInversePage 
               ? 'text-black/70 hover:text-black' 
@@ -94,8 +94,8 @@ const ResponsiveNavbar = () => {
     <>
       <nav 
         className={`
-          relative max-w-full top-0 flex items-center justify-between
-          p-6 transition-colors duration-300 bg-black
+          relative max-w-full top-0 flex justify-between
+          p-4 transition-colors duration-300 bg-black z-50
           ${isInversePage 
             ? 'bg-white text-black' 
             : 'bg-black text-white'}
@@ -150,10 +150,10 @@ const ResponsiveNavbar = () => {
             exit="hidden"
             variants={dropdownVariants} 
             className={`
-            fixed top-16 left-0 right-0 
-            md:hidden z-[100] transition-all duration-300
+            fixed top-10 left-0 right-0 
+            md:hidden z-40 transition-all duration-300
             ${isInversePage ? 'bg-white' : 'bg-black'}
-            pt-6 overflow-hidden h-fit
+            pt-6 overflow-hidden h-fit text-left
           `}
           style={poppins.style}
         >
@@ -171,7 +171,7 @@ const ResponsiveNavbar = () => {
             />
           </button>
 
-          <div className="flex flex-col z-60">
+          <div className="flex flex-col z-60 place-content-start pl-3">
             <NavLinks mobile={true} />
           </div>
         </motion.div>
