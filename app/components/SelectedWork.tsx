@@ -77,7 +77,7 @@ const PortfolioShowcase = () => {
           </Link>
           <Link
         href="/brand-product"
-        className=" hover:translate-x-[-10px] hover:translate-y-[-10px] hover:shadow-red-600 border-4 border-white rounded"
+        className=" hover:translate-x-[-10px] hover:translate-y-[-10px] hover:shadow-cardShadow border-4 border-white rounded"
         >
         <Image 
         src="/sc.png"
