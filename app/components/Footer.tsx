@@ -34,6 +34,16 @@ const Footer = () => {
     e.preventDefault();
     setStatus('Sending...');
 
+    if (!formData.email.includes('@')) {
+      setStatus('Please provide a valid email address.');
+      return;
+    }
+  
+    if (!formData.name.trim() || !formData.message.trim()) {
+      setStatus('All fields are required.');
+      return;
+    }
+
     const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '';
     const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '';
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '';
@@ -60,9 +70,19 @@ const Footer = () => {
 
       setStatus('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
-      setStatus('Failed to send message. Please try again.');
-      console.error('Email send error:', error);
+    } catch (error: unknown) {
+      let errorMessage = 'Failed to send message. Please try again.';
+  
+  // Check if the error is an instance of Error
+  if (error instanceof Error) {
+    errorMessage = `Failed to send message. Error: ${error.message}`;
+  } else if (typeof error === 'object' && error && 'text' in error) {
+    // If error is an object and has a 'text' property
+    errorMessage = `Failed to send message. Error: ${(error as { text: string }).text}`;
+  }
+
+  setStatus(errorMessage);
+  console.error('Email send error:', error);
     }
   };
 
