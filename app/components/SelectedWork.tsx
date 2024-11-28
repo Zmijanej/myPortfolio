@@ -37,7 +37,7 @@ const PortfolioShowcase = () => {
       <div className={poppins.className}>  
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 ">
           <Link 
-        href="/design-systems"
+        href="/selectedwork/explorealb"
         className="hover:translate-x-[-10px] hover:translate-y-[-10px] hover:shadow-cardShadow border-4 border-white rounded md:w-full"
         >
         <Image 
