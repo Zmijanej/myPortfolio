@@ -136,7 +136,7 @@ const Footer = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full border border-black/40 rounded-md p-3  focus:outline-none focus:ring-2 focus:ring-white/30
+              className="w-full border border-[#48cfcb]/70  rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-white/30 duration-150               
               text-black"
               placeholder="Your Name"
             />
@@ -156,7 +156,7 @@ const Footer = () => {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full border border-black/40 rounded-md p-3  focus:outline-none focus:ring-2 focus:ring-white/30
+              className="w-full border border-[#48cfcb]/70 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-white/30
               text-black"
               placeholder="your@email.com"
             />
@@ -172,11 +172,10 @@ const Footer = () => {
             <textarea 
               id="message"
               name="message"
-              
               value={formData.message}
               onChange={handleChange}
               required
-              className="resize-none w-full border border-black/40 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-white/30
+              className="resize-none w-full border border-[#48cfcb]/70 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-white/30
               text-black"
               placeholder="Tell me about your project or opportunity"
               
@@ -196,7 +195,8 @@ const Footer = () => {
 
           <button
   type="submit"
-  className="w-full py-3 rounded-md font-semibold flex items-center justify-center space-x-2 border border-black/40"
+  className="btn w-full py-3 rounded-md font-semibold flex items-center justify-center space-x-2 border border-[#48cfcb]/70
+  hover:bg-[#48cfcb] duration-300"
   disabled={status === 'Sending...'}
           >
         {status === 'Sending...' ? (
