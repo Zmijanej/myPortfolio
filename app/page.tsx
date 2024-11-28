@@ -6,6 +6,7 @@ import PortfolioShowcase from "./components/SelectedWork";
 export default function Home() {
   return (
     <main className="text-gray-text bg-black max-w-full">
+      
       <div className="">
         <Hero/>
         <PortfolioShowcase/>
