@@ -1,9 +1,11 @@
 import React from 'react'
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
-}
 
-export default page
+export default function page() {
+  return (  
+    <div className='home '>
+      This is the selected work
+    </div>
+  );
+}
+  

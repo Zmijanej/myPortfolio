@@ -7,10 +7,8 @@ html {
 }
 
 .home{
-  background-color: black;
   outline-offset: 0px;
-  color: white;
-  outline: 3px #f2f7fc;
+    outline: 3px #f2f7fc;
   margin-left: 40px;
   margin-right: 40px;
 }

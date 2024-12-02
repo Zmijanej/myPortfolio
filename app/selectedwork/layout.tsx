@@ -1,9 +1,12 @@
+'use client'
 import React from 'react'
 
-const layout = () => {
+
+export default function SelectedWorkLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div>layout</div>
-  )
+    <div className=''>
+      {children}
+    </div>
+  );
 }
 
-export default layout

@@ -99,6 +99,7 @@ const ResponsiveNavbar = () => {
             ? 'bg-white text-black' 
             : 'bg-black text-white'}
         `}
+        id='Top'
       >
         <Link 
           href="/" 
