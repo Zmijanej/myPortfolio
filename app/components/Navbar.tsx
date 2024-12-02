@@ -52,7 +52,7 @@ const ResponsiveNavbar = () => {
   };
 
   // Determine if the current page requires inverse colors
-  const isInversePage = (pathname === routes['/selectedwork']) || (pathname === routes['/resume']);
+  const isInversePage = pathname === routes['/selectedwork'];
 
   // Navigation Links Component (for reusability)
   const NavLinks = ({ mobile = false }) => (
@@ -149,7 +149,7 @@ const ResponsiveNavbar = () => {
             exit="hidden"
             variants={dropdownVariants} 
             className={`
-            fixed top-10 left-0 right-0 
+            absolute top-10 left-0 right-0 
             md:hidden z-40 transition-all duration-300
             ${isInversePage ? 'bg-white' : 'bg-black'}
             pt-6 overflow-hidden h-fit text-left

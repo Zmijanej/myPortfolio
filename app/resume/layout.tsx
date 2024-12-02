@@ -1,9 +1,12 @@
+'use client'
 import React from 'react'
 
-const layout = () => {
+
+export default function ResumeLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div>layout</div>
-  )
+    <div className='bg-black'>
+      {children}
+    </div>
+  );
 }
 
-export default layout

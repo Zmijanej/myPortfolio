@@ -8,7 +8,7 @@ const ProgressBar = () => {
   return (
     // <motion.div className="progress-bar bg-white fixed top-0 left-0 right-0 h-2.5 origin-left z-50" style={{ scaleX:scrollYProgress }} />
     <motion.div 
-      className="fixed top-0 left-0 right-0 h-2.5 origin-left z-60"
+      className="fixed top-0 left-0 right-0 h-2.5 origin-left z-[100]"
       style={{ 
         scaleX: scrollYProgress,
         background: '#48cfcb',

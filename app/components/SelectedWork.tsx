@@ -1,26 +1,23 @@
 "use client"
 import Image from 'next/image';
 import Link from 'next/link';
-import {Pirata_One,Poppins} from 'next/font/google'
+import {Poppins} from 'next/font/google'
 import Button from './ui/button';
 
 const poppins = Poppins({
     weight: '400',
     subsets: ['latin'],
 })
-const pirata = Pirata_One({
-  weight: '400',
-  subsets: ['latin'],
-})
+
 
 
 const PortfolioShowcase = () => {
   return (
-    <section className='collection-list bg-black text-gray-text max-w-7xl mx-auto py-20'>
-      <div className={pirata.className}>
+    <section className='collection-list bg-black text-gray-text max-w-7xl px-6'>
+      <div className='font-pirata'>
         <div className='grid grid-cols-2'>
           <div className='content-center'>
-            <h3 className='row-span-2 p-5 text-6xl md:text-7xl lg:text-7xl items-center'>Selected Work</h3>
+            <h3 className='pirata row-span-2 p-5 text-6xl md:text-7xl lg:text-7xl items-center'>Selected Work</h3>
           </div>
           <div className=''>
             <Image
@@ -41,7 +38,7 @@ const PortfolioShowcase = () => {
         className="hover:translate-x-[-10px] hover:translate-y-[-10px] hover:shadow-cardShadow border-4 border-white rounded md:w-full"
         >
         <Image 
-        src="/sc.png"
+        src="/coming_soon.png"
         alt='hi'
         width={500}
         height={300}
@@ -50,7 +47,7 @@ const PortfolioShowcase = () => {
         <div className='p-4'>
           <h3 className="text-2xl font-bold mb-4">ExploreAlb</h3>
         <p>
-          Comprehensive web design system for a 50+ page b2b SaaS marketing website.
+        Tourism website application for Albania.
         </p>
         </div>
         
@@ -94,7 +91,7 @@ const PortfolioShowcase = () => {
         </div>
           </Link>
 
-          <Link href={"#"} className=''>
+          <Link href={"/selectedwork"} className=''>
             <Button text='see more'/>
           </Link>
         </div>

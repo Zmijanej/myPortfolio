@@ -1,9 +1,14 @@
 import React from 'react'
+import ResumeButtons from '../components/resumeButtons';
+import ProfessionalExperience from '../components/professionalExp';
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
+export default function page() {
+  return (  
+    <div className='home'>
+      <ResumeButtons/>
+      <ProfessionalExperience/>
+      <ResumeButtons/>
+    </div>
+  );
 }
-
-export default page
+  

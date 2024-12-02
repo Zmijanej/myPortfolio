@@ -6,7 +6,7 @@ const Button = ({ text = "see more" }: ButtonProps)=> {
   
   return (
       <button className='hero-sec-btn group'>
-        <span className='hero-sec-btn-span '>
+        <span className='hero-sec-btn-span'>
           {text}
         </span>
       </button>

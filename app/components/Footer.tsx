@@ -28,7 +28,7 @@ const Footer = () => {
     '/resume': '/resume',
   };
 
-  const isInversePage = (pathname === routes['/selectedwork']) || (pathname === routes['/resume']);
+  const isInversePage = pathname === routes['/selectedwork'];
 
   // Type the event for input and textarea changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -106,10 +106,10 @@ const Footer = () => {
     >
       {/* Get in Touch Text Section */}
       <div className="w-full md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">
+        <h2 className="pirata text-4xl md:text-5xl font-bold mb-4">
           Get in Touch
         </h2>
-        <p className="text-lg  max-w-full">
+        <p className="text-lg max-w-full">
           Have a project in mind? Want to collaborate? 
           I&apos;m always open to interesting opportunities 
           and conversations. Drop me a message!

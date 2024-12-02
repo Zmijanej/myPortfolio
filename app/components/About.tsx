@@ -2,21 +2,11 @@ import Image from 'next/image';
 import React from 'react';
 import Button from './ui/button';
 import Link from 'next/link';
-import {Pirata_One,Poppins} from 'next/font/google'
-
-const pirata = Pirata_One({
-  weight: '400',
-  subsets: ['latin'],
-})
-const poppins = Poppins({
-  weight: '400',
-  subsets: ['latin'],
-})
 
 
 const About = () => {
   return (
-      <div className="bg-black min-h-screen text-white p-6 md:p-12 py-20">
+      <section className="bg-black min-h-screen text-white p-6 md:p-12 py-16">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Left Column with Image and Illustration */}
@@ -53,8 +43,8 @@ const About = () => {
             </div>
 
           {/* Right Column with Text Content */}
-            <div className="space-y-6 py-20" style={poppins.style}>
-              <h1 className="text-4xl md:text-5xl font-bold" style={pirata.style}>
+            <div className="space-y-6 py-20" >
+              <h1 className="pirata text-4xl md:text-5xl font-bold" >
               Who is Brend?
               </h1>
             
@@ -78,7 +68,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     
   );
 };

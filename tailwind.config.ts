@@ -14,6 +14,10 @@ export default {
       boxShadow:{
         'cardShadow': '10px 10px 2px rgba(72, 207, 203);',
       },
+      fontFamily:{
+        pirata:['var(--font-Pirata_One)'],
+        poppins:['var(--font-Poppins)']
+      }
   },
   plugins: [],
 }
