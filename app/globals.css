@@ -7,7 +7,6 @@ html {
 }
 
 .home{
-  outline-offset: 0px;
   margin-left: 40px;
   margin-right: 40px;
 }
@@ -21,10 +20,6 @@ html {
   max-width: 1080px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.white-body{
-  background-color: white;
 }
 
 @media screen and (max-width: 767px) {
@@ -65,9 +60,7 @@ html {
   }
 }
 
-.animate-slide {
-  animation: slide 15s linear infinite;
-}
+
 
 
 /* Marquee animation */
@@ -105,6 +98,6 @@ html {
   to { opacity: 1; }
 }
 
-.pirata{
-  font-family: var(--font-pirata);
+.cinzel{
+  font-family: var(--font-cinzel);
 }

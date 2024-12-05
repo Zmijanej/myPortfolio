@@ -1,11 +1,13 @@
 import React from 'react'
+import ShowCase from '../components/ShowCase';
 
 
 export default function page() {
   return (  
-    <div className='home '>
-      This is the selected work
-    </div>
+   
+      <div>
+        <ShowCase/>
+      </div>
   );
 }
   

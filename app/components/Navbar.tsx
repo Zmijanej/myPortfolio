@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { Menu } from 'lucide-react'
 import { Pirata_One, Poppins } from 'next/font/google'
 import { AnimatePresence, motion } from 'framer-motion'
+import ProgressBar from './ui/progress-bar'
 
 const poppins = Poppins({
   weight: '400',
@@ -93,14 +94,17 @@ const ResponsiveNavbar = () => {
     <>
       <nav 
         className={`
-          relative max-w-full top-0 flex justify-between
-          p-4 transition-colors duration-300 bg-black z-50
+          sticky max-w-full top-0 flex justify-between items-center bg-black/40 backdrop-blur-sm
+          p-4 transition-colors duration-300 z-50
+          whitespace-nowrap
           ${isInversePage 
             ? 'bg-white text-black' 
             : 'bg-black text-white'}
         `}
         id='Top'
       >
+        <ProgressBar/>
+
         <Link 
           href="/" 
           className={`
@@ -137,8 +141,11 @@ const ResponsiveNavbar = () => {
             />
           )}
         </button>
+
         </div>
       </nav>
+
+      
 
       {/* Mobile Dropdown Menu */}
       <AnimatePresence>
@@ -177,7 +184,6 @@ const ResponsiveNavbar = () => {
         </motion.div>
       )}
       </AnimatePresence>
-      
     </>
   )
 }
@@ -186,4 +192,3 @@ export default ResponsiveNavbar
 
 
 
-// (pathname === routes['/selectedwork']) || (pathname === routes['/resume'])

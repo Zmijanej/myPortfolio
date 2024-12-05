@@ -2,8 +2,12 @@ import React from 'react'
 
 const layout = () => {
   return (
-    <div>layout</div>
+    <div>
+
+    </div>
   )
 }
 
 export default layout
+
+

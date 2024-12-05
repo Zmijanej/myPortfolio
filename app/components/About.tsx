@@ -1,75 +1,96 @@
+'use client'
 import Image from 'next/image';
-import React from 'react';
+import React, { useRef } from 'react';
 import Button from './ui/button';
 import Link from 'next/link';
+import { motion, useInView,useScroll, useTransform } from 'framer-motion';
+
+const About = () => {  
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+
+  const backgroundOpacity = useTransform(
+    scrollYProgress,
+    [0.10, 0.15, 0.20, 0.25, 0.30], // Scroll progress stages
+    [0.75, 0.80, 0.85, 0.90, 1] // Corresponding opacity values
+  );
 
 
-const About = () => {
+
   return (
-      <section className="bg-black min-h-screen text-white p-6 md:p-12 py-16">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+      <motion.section 
+      ref={ref}
+      style={{ 
+        backgroundColor: "#131313",
+        opacity: backgroundOpacity 
+      }}
+      className="relative" >
+      {/* Background Overlay */}
+      
+        
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Left Column with Image and Illustration */}
-            <div className="relative">
+          <div className="relative">
             {/* Decorative Crystal Illustration */}
-              <div className="absolute -left-4 bottom-0 w-48 h-48 z-0">
-                <svg className="w-full h-full" viewBox="0 0 100 100">
-                  <path
+            <div className="absolute -left-4 bottom-0 w-48 h-48 z-0">
+              <svg className="w-full h-full" viewBox="0 0 100 100">
+                <path
                   d="M10 90 L50 10 L90 90 Z"
                   className="stroke-white fill-none stroke-2"
                 />
-                {/* Add more geometric lines for crystal effect */}
-                  <path
+                <path
                   d="M30 90 L50 30 L70 90"
                   className="stroke-white fill-none stroke-2"
                 />
-                </svg>
-              </div>
+              </svg>
+            </div>
             
             {/* Arched Frame */}
-              <div className="relative">
-                <div className="w-full max-w-md mx-auto aspect-square rounded-t-full border-2 border-white p-4">
-                  <div className="w-full h-full rounded-t-full overflow-hidden z-0">
-                    <Image
+            <div className="relative">
+              <div className="w-full max-w-md mx-auto aspect-square rounded-t-full border-2 border-white p-4">
+                <div className="w-full h-full rounded-t-full overflow-hidden z-0">
+                  <Image
                     src="/snake2.png"
                     alt="Profile"
                     width={400}
                     height={400}                    
                     className="w-full h-full object-cover z-5"
-                    />
-                  </div>
+                  />
                 </div>
               </div>
             </div>
+          </div>
 
           {/* Right Column with Text Content */}
-            <div className="space-y-6 py-20" >
-              <h1 className="pirata text-4xl md:text-5xl font-bold" >
+          <div className="space-y-6 py-20">
+            <h1 className="pirata text-4xl md:text-5xl font-bold">
               Who is Brend?
-              </h1>
+            </h1>
             
-              <p className="text-lg">
+            <p className="text-lg">
               Brend is a front-end developer and WordPress web designer from vibrant Albania. Currently open to freelance clients and full-time opportunities.
-              </p>
+            </p>
             
-              <p className="text-lg">
-            With a passion for creating responsive and dynamic user experiences, Brend brings fresh ideas to every project, from tourism platforms to cutting-edge design systems. They’re always eager to learn new technologies like Next.js, TypeScript, and Tailwind CSS, while staying grounded in the fundamentals of web development.
-              </p>
+            <p className="text-lg">
+              With a passion for creating responsive and dynamic user experiences, Brend brings fresh ideas to every project, from tourism platforms to cutting-edge design systems. They&apos;are always eager to learn new technologies like Next.js, TypeScript, and Tailwind CSS, while staying grounded in the fundamentals of web development.
+            </p>
             
-              <p className="text-lg">
-            Beyond code, Brend enjoys mentoring budding developers and helping businesses thrive with intuitive digital solutions. Say hi if you’re into design, innovation, or community-driven projects!
-              </p>
-              <div>
-                <Link href="#Footer"
-                className="">
-                  <Button text='get in touch'/>
-                </Link>
-              </div>
+            <p className="text-lg">
+              Beyond code, Brend enjoys mentoring budding developers and helping businesses thrive with intuitive digital solutions. Say hi if you&apos;re into design, innovation, or community-driven projects!
+            </p>
+            <div>
+              <Link href="#Footer" className="">
+                <Button text='get in touch'/>
+              </Link>
             </div>
           </div>
         </div>
-      </section>
-    
+      </div>
+    </motion.section>
   );
 };
 

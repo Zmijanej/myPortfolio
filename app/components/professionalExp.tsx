@@ -26,7 +26,7 @@ const ProfessionalExperience = () => {
       <h2 className='pirata text-4xl md:text-5xl py-12'>Achievements</h2>
       <p>✷&nbsp; 1st place of Basketball Championship, [Epoka University], [2021-2022, 2022-2023]</p>
       <p>✷&nbsp; 1st place of Voleyball Championship, [Epoka University], [2021-2022, 2022-2023]</p>
-      <div className='grid grid-cols-2 py-7'>
+      <div className='grid grid-cols-3 py-7'>
         <div className='gap-4 leading-10'>
           <h2 className='pirata text-4xl md:text-5xl py-12 '>Technical Expertise</h2>
           <p>✷&nbsp; HTML</p>

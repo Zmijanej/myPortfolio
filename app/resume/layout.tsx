@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function ResumeLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className='bg-black'>
+    <div className='bg-black text-white'>
       {children}
     </div>
   );

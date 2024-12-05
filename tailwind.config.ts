@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'hero-pattern': "url('alb2.jpg')",
+        'footer-texture': "url('/img/footer-texture.png')",
+      },
       colors: {
         'gray-text':'#F2F7FC'
       },
