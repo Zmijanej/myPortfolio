@@ -60,13 +60,10 @@ html {
   }
 }
 
-/* progress bar animations */
-/* 
-@keyframes neonPulse {
-  from { opacity: 0.5; }
-  to { opacity: 1; }
-} */
-
 .cinzel{
   font-family: var(--font-cinzel);
+}
+
+.cinzel_deco{
+  font-family: var(--font-cinzel-deco);
 }

@@ -3,19 +3,9 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu } from 'lucide-react'
-import { Pirata_One, Poppins } from 'next/font/google'
 import { AnimatePresence, motion } from 'framer-motion'
 import ProgressBar from './ui/progress-bar'
 
-const poppins = Poppins({
-  weight: '400',
-  subsets: ['latin'],
-})
-
-const pirata = Pirata_One({
-  weight: '400',
-  subsets: ['latin'],
-})
 
 const dropdownVariants = {
   hidden: { 
@@ -59,7 +49,7 @@ const ResponsiveNavbar = () => {
   const NavLinks = ({ mobile = false }) => (
     <>
       {[
-        { name: 'Selected Work', route: '#SelectedWork' },
+        { name: 'Selected Work', route: '/#SelectedWork' },
         { name: 'Resume', route: '/resume' },
         { name: 'Get in Touch', route: '#Footer' }
       ].map(({ name, route }) => (
@@ -69,19 +59,10 @@ const ResponsiveNavbar = () => {
           onClick={() => setIsMenuOpen(false)}
           className={`
             text-sm uppercase tracking-wider 
-            transition-all duration-300 
+            transition-all duration-300 text-white
             ${mobile 
-              ? 'block py-4 border-b border-opacity-10' 
+              ? 'block py-4 border-b border-opacity-10 backdrop-blur-sm' 
               : 'hidden md:block'}
-            ${isInversePage 
-              ? 'text-black/70 hover:text-black' 
-              : 'text-white/70 hover:text-white'}
-            ${pathname === route 
-              ? (isInversePage 
-                ? 'text-black font-semibold' 
-                : 'text-white font-semibold'
-              ) 
-              : ''}
           `}
         >
           {name}
@@ -94,12 +75,9 @@ const ResponsiveNavbar = () => {
     <>
       <nav 
         className={`
-          sticky max-w-full top-0 flex justify-between items-center bg-black/40 backdrop-blur-sm
+          sticky max-w-full top-0 flex justify-between items-center  backdrop-blur-sm
           p-4 transition-colors duration-300 z-[110]
           whitespace-nowrap
-          ${isInversePage 
-            ? 'bg-white text-black' 
-            : 'bg-black text-white'}
         `}
         id='Top'
       >
@@ -109,9 +87,8 @@ const ResponsiveNavbar = () => {
           href="/" 
           className={`
             text-4xl font-bold tracking-tighter z-60 mx-10
-            ${isInversePage ? 'text-black' : 'text-white'}
+            text-[#f4ede5]
           `}
-          style={pirata.style}
         >
           Brend Zmijanej
         </Link>
@@ -129,14 +106,14 @@ const ResponsiveNavbar = () => {
             <Menu 
             size={24} 
             className={`
-              ${isInversePage ? 'text-black' : 'text-white'}
+              text-white
             `}
           />
           ) : (
             <Menu 
               size={24} 
               className={`
-                ${isInversePage ? 'text-black' : 'text-white'}x x
+                text-white
               `} 
             />
           )}
@@ -157,12 +134,10 @@ const ResponsiveNavbar = () => {
             exit="hidden"
             variants={dropdownVariants} 
             className={`
-            absolute top-10 left-0 right-0 
+            fixed top-10 w-full left-0 right-0 
             md:hidden z-40 transition-all duration-300
-            ${isInversePage ? 'bg-white' : 'bg-black'}
             pt-6 overflow-hidden h-fit text-left
           `}
-          style={poppins.style}
         >
           {/* Close Button */}
           <button 
@@ -172,13 +147,13 @@ const ResponsiveNavbar = () => {
             <Menu
               size={24} 
               className={`
-                ${isInversePage ? 'text-white' : 'text-black'}
+              text-white
                 transition-all duration-300 absolute inset-0
               `} 
             />
           </button>
 
-          <div className="flex flex-col z-60 place-content-start pl-3">
+          <div className="flex flex-col z-60 place-content-start">
             <NavLinks mobile={true} />
           </div>
         </motion.div>

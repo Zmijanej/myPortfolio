@@ -34,7 +34,7 @@ const Background:React.FC<BackgroundProps> = ({footerRef}) => {
         backgroundColor: "#131313",
         opacity: backgroundOpacity ,
         }}
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat bg-[url('/alb2.jpg')] bg-fixed">
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat sm:bg-[url('/alb2.jpg')] bg-fixed">
         
       </motion.div>
       
@@ -43,7 +43,7 @@ const Background:React.FC<BackgroundProps> = ({footerRef}) => {
           opacity: footerFadeIn,
           backgroundColor: "#131313",
         }}
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat bg-[url('/alb2.jpg')] bg-fixed"
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat sm:bg-[url('/alb2.jpg')] bg-fixed"
       > 
       </motion.div>
       <div className='fixed inset-0 bg-cover bg-center bg-no-repeat bg-fixed bg-[#131313] -z-10'></div> 

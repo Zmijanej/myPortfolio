@@ -1,22 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import { Pirata_One, Poppins, Cinzel } from 'next/font/google';
+import { Poppins, Cinzel,Cinzel_Decorative } from 'next/font/google';
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import Background from "./components/background";
-import { useRef } from "react";
 
-const poppins = Poppins({
+const cinzel_Deco = Cinzel_Decorative({
   weight: '400',
   subsets: ['latin'],
-  variable:'--font-poppins'
-})
-
-const pirata = Pirata_One({
-  weight: '400',
-  subsets: ['latin'],
-  variable:'--font-pirata'
+  variable:'--font-cinzel-deco'
 })
 
 const cinzel = Cinzel({
@@ -38,13 +29,13 @@ export default function RootLayout({
 }>) {
   return (
     
-    <html lang="en" className={`${cinzel.className} ${cinzel.variable}`}>
+    <html lang="en" className={`${cinzel.className} ${cinzel_Deco.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="icon" href="/icon.ico" sizes="any" />
       </head>
       <body 
-      className="bg-black/70"
+      className="bg-black/70 text-[#f4ede5] "
       >
         
         <Navbar/>

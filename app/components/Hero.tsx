@@ -1,6 +1,7 @@
 'use client'
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState,useEffect } from 'react';
+import Clock from './Clock';
 
 
 
@@ -21,35 +22,39 @@ const Hero = () => {
 
   return (
     <motion.section 
-    ref={ref}
-    style={{ 
-      opacity: backgroundOpacity 
-    }}
-    className="relative" >
-
-      <div className="flex flex-col items-center z-10 space-y-6">
-        <div className="rounded-full border-2 border-gray-text text-[#48cfcb] text-base md:text-2xl lg:text-3xl font-thin px-6 top-6 opacity-100">
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, culpa, doloremque quisquam obcaecati, quia sapiente fugit animi voluptates eaque quos impedit nostrum hic ducimus error. Tempora officiis odit iusto officia?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum fuga nisi distinctio quidem, modi placeat, eligendi nam a ea rem eum deleniti, neque repellat dicta facilis quam alias. Quibusdam, vero!</p>
-          JUNIOR
+      ref={ref}
+      style={{ 
+        opacity: backgroundOpacity 
+      }}
+      className="relative px-4 md:px-12 lg:px-14 py-8 md:py-16" 
+    >
+      <div className='flex flex-col md:flex-row w-full  min-h-screen items-center space-y-6 md:space-y-0'>
+      <div className='flex sm:hidden mb-4 md:mb-6 justify-center md:justify-start'>
+            <Clock/>
+          </div>
+        {/* Left Column - Title */}
+        <div className='w-full md:w-1/2 text-center md:text-left mb-4 md:mb-0'> 
+          <h3 className='cinzel_deco font-bold leading-loose text-md md:text-xl lg:text-2xl pb-2 md:pb-4'>
+            Junior
+          </h3>
+          <h1 className='text-4xl md:text-5xl lg:text-6xl leading-tight uppercase	'>
+            Front-End<br/>Developer
+          </h1>
         </div>
-        <motion.h1
-          initial={{ opacity: 0, scale: 1 }}
-          animate={{ opacity: 1, scale: 1, y: [100, 0] }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="text-2xl sm:text-5xl lg:text-7xl xl:text-8xl [text-shadow:_0_4px_8px_#48cfcb] pb-10"
-        >
-          FRONT-END DEVELOPER
-        </motion.h1>
-      </div>
-      <div className="min-h-fit px-6 py-36 relative z-10">
-        <h2 className="font-bold leading-loose text-lg md:text-xl lg:text-2xl py-12">
-          Hi, I&apos;m <span className="text-[#48cfcb]">Brend</span> and I&apos;m a front-end developer
-          crafting seamless user experiences, responsive interfaces and scalable web solutions based in
-          the lively and ever-evolving{' '}
-          <span className="text-red-700">Tirana, Albania</span>.
-        </h2>
-      </div>
 
+        {/* Right Column - About & Clock */}
+        <div className='w-full md:w-1/2 text-center md:text-left'>
+          {/* Clock Component */}
+          <div className='hidden sm:flex mb-4 md:mb-6 justify-center md:justify-start'>
+            <Clock/>
+          </div>
+
+          {/* About Text */}
+          <h2 className="text-base md:text-lg lg:text-xl leading-relaxed md:indent-8">
+            I am a developer and aspiring entrepreneur based in <span className="text-red-700">Tirana, Albania</span> with a passion for crafting intuitive digital experiences. I love clean, functional design and aim to make technology more accessible. In my free time, you'll find me immersed in basketball or video games, combining creativity and strategy on and off the court.
+          </h2>
+        </div>
+      </div>
     </motion.section>
   );
 };

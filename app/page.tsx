@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
 
-    <main className="text-gray-text max-w-full px-0">
+    <main className="text-[#f4ede5] max-w-full px-0">
        <div className="">
         <Background footerRef={footerRef}/>
         <HeroSection/>
