@@ -20,7 +20,6 @@ const Hero = () => {
 
 
   return (
-
     <motion.section 
     ref={ref}
     style={{ 

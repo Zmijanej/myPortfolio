@@ -15,7 +15,7 @@ const ProfessionalExperience = () => {
       <p>✷&nbsp; Integrated e-commerce solutions using WooCommerce for seamless user experiences.</p>
       <p>✷&nbsp; Collaborated with cross-functional teams to deliver projects within deadlines.</p>
       <p>&zwj;</p>
-      <h4 className='text-xl'>Software Engineering Intern | RadioSol, Tirana | March 2024 - April 2024</h4>
+      <h4 className='text-xl'>Software Engineering Intern | RadioSol, Tirana | March 2024 - June 2024</h4>
       <p>✷&nbsp; Assisted in developing web applications for radio broadcast management.</p>
       <p>✷&nbsp; Debugged and optimized internal tools, ensuring smooth operations.</p>
       <p>✷&nbsp; Collaborated on API integration for streaming platforms and social media.</p>
@@ -26,7 +26,7 @@ const ProfessionalExperience = () => {
       <h2 className='pirata text-4xl md:text-5xl py-12'>Achievements</h2>
       <p>✷&nbsp; 1st place of Basketball Championship, [Epoka University], [2021-2022, 2022-2023]</p>
       <p>✷&nbsp; 1st place of Voleyball Championship, [Epoka University], [2021-2022, 2022-2023]</p>
-      <div className='grid grid-cols-3 py-7'>
+      <div className='grid grid-cols-2 py-7 gap-12'>
         <div className='gap-4 leading-10'>
           <h2 className='pirata text-4xl md:text-5xl py-12 '>Technical Expertise</h2>
           <p>✷&nbsp; HTML</p>

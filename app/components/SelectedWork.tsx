@@ -6,7 +6,7 @@ import Button from './ui/button';
 
 const PortfolioShowcase = () => {
   return (
-    <section className='collection-list bg-[#131313] text-gray-text '>
+    <section className='collection-list bg-[#131313] text-gray-text' id='SelectedWork'>
         <div className='grid grid-cols-2'>
           <div className='content-center pirata'>
             <h3 className='row-span-2 p-5 text-6xl md:text-7xl lg:text-7xl items-center'>Selected Work</h3>

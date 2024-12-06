@@ -28,7 +28,6 @@ const About = () => {
         opacity: backgroundOpacity 
       }}
       className="relative" >
-      {/* Background Overlay */}
       
         
       <div className="max-w-6xl mx-auto relative z-10">

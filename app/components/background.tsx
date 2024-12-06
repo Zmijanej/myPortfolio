@@ -1,16 +1,31 @@
 'use client'
 import { motion, useMotionValue, useScroll, useTransform } from 'framer-motion'
-import React, { useRef } from 'react'
-import { useScrollContext } from './ScrollContext';
+import React, { RefObject, useRef } from 'react'
 
-const Background:React.FC = () => {
-  const { scrollYProgress } = useScrollContext();
-  const scrollYProgressMotionValue = useMotionValue(scrollYProgress);
+
+interface BackgroundProps {
+  footerRef: RefObject<HTMLDivElement>;
+}
+const Background:React.FC<BackgroundProps> = ({footerRef}) => {
+  const { scrollYProgress } = useScroll();
+
   const backgroundOpacity = useTransform(
-    scrollYProgressMotionValue,
-    [0.65, 0.75, 0.80, 0.85, 0.90],
-    [0.55, 0.45, 0.35, 0.25, 0]
+    scrollYProgress,
+    [0, 0.05, 0.1, 0.15, 0.2],
+    [0.45, 0.35, 0.25, 0.15, 0]
   );
+
+  const { scrollYProgress: footerScrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ["start end", "end end"], // Adjust scroll offsets as needed
+  });
+
+  const footerFadeIn = useTransform(
+    footerScrollYProgress,
+    [1, 0.95, 0.90, 0.85, 0.80],
+    [0.45, 0.35, 0.25, 0.15, 0]
+  );
+
 
   return (
     <>
@@ -20,18 +35,21 @@ const Background:React.FC = () => {
         opacity: backgroundOpacity ,
         }}
         className="fixed inset-0 bg-cover bg-center bg-no-repeat bg-[url('/alb2.jpg')] bg-fixed">
-      
+        
       </motion.div>
-      <div className='fixed inset-0 bg-cover bg-center bg-no-repeat bg-fixed bg-[#131313] -z-10'></div>
+      
+      <motion.div
+        style={{
+          opacity: footerFadeIn,
+          backgroundColor: "#131313",
+        }}
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat bg-[url('/alb2.jpg')] bg-fixed"
+      > 
+      </motion.div>
+      <div className='fixed inset-0 bg-cover bg-center bg-no-repeat bg-fixed bg-[#131313] -z-10'></div> 
     </>
   )
 }
 
 export default Background
 
-// ref={ref}
-//       style={{ 
-//         backgroundColor: "#131313",
-//         opacity: backgroundOpacity ,
-//         backgroundImage: "url('/alb2.jpg')"
-//       }}

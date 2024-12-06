@@ -1,12 +1,10 @@
 'use client'
-import React, { useState } from 'react'
+import React, { RefObject, useState } from 'react'
 import { Send } from 'lucide-react'
 import emailjs from '@emailjs/browser'
-import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import FollowAlong from './FollowAlong';
 import { useTransform,motion, useMotionValue } from 'framer-motion';
-import { useScrollContext } from './ScrollContext';
 
 
 // Define interface for form data
@@ -15,9 +13,12 @@ interface FormData {
   email: string;
   message: string;
 }
+interface FooterProps {
+  footerRef: RefObject<HTMLDivElement>;
+}
 
 
-const Footer:React.FC = () => {
+const Footer:React.FC<FooterProps> = ({ footerRef }) => {
   // Use the FormData interface for type definition
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -26,20 +27,7 @@ const Footer:React.FC = () => {
   });
   const [status, setStatus] = useState('');
 
-  const pathname = usePathname();
-
-  const routes = {
-    '/selectedwork': '/selectedwork',
-    '/resume': '/resume',
-  };
-  const { scrollYProgress } = useScrollContext();
-  const scrollYProgressMotionValue = useMotionValue(scrollYProgress);
-
-  const footerFadeIn = useTransform(
-    scrollYProgressMotionValue,
-    [0.9, 0.95, 1],
-    [0, 0.3, 0.55] // Adjust these to control when the background fades in
-  );
+  
   // Type the event for input and textarea changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -107,12 +95,13 @@ const Footer:React.FC = () => {
   };
 
   return (
-    <motion.footer 
+    <footer 
       id="Footer"
+      ref={footerRef}
       className={` py-16 px-6 md:px-12 flex flex-wrap flex-col md:flex-row items-center justify-between `}
     >
       {/* Get in Touch Text Section */}
-      <div className="w-full md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
+      <div className="w-full md:w-1/2 mb-10 md:mb-0 text-center md:text-left opacity-100 z-[100]">
         <h2 className=" text-4xl md:text-5xl font-bold mb-4">
           Get in Touch
         </h2>
@@ -125,7 +114,7 @@ const Footer:React.FC = () => {
       </div>
 
       {/* Contact Form Section */}
-      <div className="w-full md:w-1/2 max-w-md">
+      <div className="w-full md:w-1/2 max-w-md opacity-100 z-[100]">
         <form 
           onSubmit={handleSubmit}
           className={`p-8 rounded-xl space-y-6`}
@@ -220,7 +209,7 @@ const Footer:React.FC = () => {
         </form>
       </div>
       
-      <div>
+      <div className='z-[100]'>
       <h2 className=" text-4xl md:text-5xl font-bold py-6">
           Follow Along
         </h2>
@@ -271,7 +260,7 @@ const Footer:React.FC = () => {
         
       </div>
       <FollowAlong/>
-    </motion.footer>
+    </footer>
   );
 };
 

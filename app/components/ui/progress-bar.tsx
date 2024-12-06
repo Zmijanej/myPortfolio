@@ -5,19 +5,20 @@ import React from 'react'
 const ProgressBar = () => {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 400,
+    damping: 40,
     restDelta: 0.001
   });
   return (
     <motion.div 
-      className="absolute bottom-0 left-0 right-0 origin-left z-[100]"
+      className="absolute bottom-0 left-6 right-6 origin-left z-[100]"
+      
       style={{ 
         scaleX,
-        height: '0.25rem',
+        height: '1px',
         background: '#ffffff',
-        boxShadow: '0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff',
-        animation: 'neonPulse 2s infinite alternate'
+        boxShadow: '0 0 2px #ffffff',
+        animation: 'neonPulse 1s infinite',
       }}
     />
   )

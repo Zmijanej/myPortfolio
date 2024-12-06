@@ -60,43 +60,12 @@ html {
   }
 }
 
-
-
-
-/* Marquee animation */
-
-/* .marquee-text {
-  overflow: clip;
-}
-
-.marquee-text-track {
-  display: flex;
-  gap: 4.8rem;
-  animation: marquee-move-text var(--speed, 10s) linear infinite var(
-      --direction,
-      forwards
-    );
-}
-
-.marquee-text p {
-  border: 1px solid white;
-  background-color: #141414;
-  border-radius: 999px;
-  padding: 1rem 2.5rem;
-}
-
-@keyframes marquee-move-text {
-  to {
-    transform: translateX(-50%);
-  }
-} */
-
 /* progress bar animations */
-
+/* 
 @keyframes neonPulse {
   from { opacity: 0.5; }
   to { opacity: 1; }
-}
+} */
 
 .cinzel{
   font-family: var(--font-cinzel);

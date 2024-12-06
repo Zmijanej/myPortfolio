@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import { Pirata_One, Poppins, Cinzel } from 'next/font/google';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Background from "./components/background";
-import { ScrollProvider } from "./components/ScrollContext";
+import { useRef } from "react";
 
 const poppins = Poppins({
   weight: '400',
@@ -46,14 +46,10 @@ export default function RootLayout({
       <body 
       className="bg-black/70"
       >
-        <ScrollProvider>
-        <Background/>
+        
         <Navbar/>
         {children}
-        <Footer/>
         <SpeedInsights />
-        </ScrollProvider>
-
       </body>
     </html>
   );

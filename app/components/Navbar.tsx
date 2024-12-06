@@ -59,7 +59,7 @@ const ResponsiveNavbar = () => {
   const NavLinks = ({ mobile = false }) => (
     <>
       {[
-        { name: 'Selected Work', route: '/selectedwork' },
+        { name: 'Selected Work', route: '#SelectedWork' },
         { name: 'Resume', route: '/resume' },
         { name: 'Get in Touch', route: '#Footer' }
       ].map(({ name, route }) => (
@@ -95,7 +95,7 @@ const ResponsiveNavbar = () => {
       <nav 
         className={`
           sticky max-w-full top-0 flex justify-between items-center bg-black/40 backdrop-blur-sm
-          p-4 transition-colors duration-300 z-50
+          p-4 transition-colors duration-300 z-[110]
           whitespace-nowrap
           ${isInversePage 
             ? 'bg-white text-black' 
