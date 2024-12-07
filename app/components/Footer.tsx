@@ -4,7 +4,7 @@ import { Send } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 import Link from 'next/link';
 import FollowAlong from './FollowAlong';
-import { useTransform,motion, useMotionValue } from 'framer-motion';
+// import { useTransform,motion, useMotionValue } from 'framer-motion';
 
 
 // Define interface for form data

@@ -1,7 +1,6 @@
 'use client'
 import Image from 'next/image';
-import Button from './ui/button';
-import Link from 'next/link';
+
 
 const About = () => {  
   
@@ -63,9 +62,6 @@ const About = () => {
               Beyond code, Brend enjoys mentoring budding developers and helping businesses thrive with intuitive digital solutions. Say hi if you&apos;re into design, innovation, or community-driven projects!
             </p>
             <div>
-              <Link href="#Footer" className="">
-                <Button text='get in touch'/>
-              </Link>
             </div>
           </div>
         </div>

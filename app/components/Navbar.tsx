@@ -35,15 +35,6 @@ const ResponsiveNavbar = () => {
   setIsMenuOpen(false);
 }, [pathname]);
 
-  // Define page-specific routes
-  const routes = {
-    '/': '/',
-    '/selectedwork': '/selectedwork',
-    '/resume': '/resume',
-  };
-
-  // Determine if the current page requires inverse colors
-  const isInversePage = pathname === routes['/selectedwork'];
 
   // Navigation Links Component (for reusability)
   const NavLinks = ({ mobile = false }) => (
@@ -73,7 +64,18 @@ const ResponsiveNavbar = () => {
 
   return (
     <>
-      <nav 
+      <motion.nav 
+      initial={{ opacity: 0,y: "-50%" }}
+      animate={{
+        opacity: 1, 
+        scale: 1,
+        y: 0,
+        transition: {
+          delay: 0.7,
+          duration: 0.3,
+          ease: "easeIn"
+        }
+      }}
         className={`
           sticky max-w-full top-0 flex justify-between items-center  backdrop-blur-sm
           p-4 transition-colors duration-300 z-[110]
@@ -120,7 +122,7 @@ const ResponsiveNavbar = () => {
         </button>
 
         </div>
-      </nav>
+      </motion.nav>
 
       
 
