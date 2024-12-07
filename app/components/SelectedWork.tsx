@@ -6,19 +6,26 @@ import Button from './ui/button';
 
 const PortfolioShowcase = () => {
   return (
-    <section className='collection-list bg-[#131313] text-gray-text' id='SelectedWork'>
-        <div className='grid grid-cols-2'>
-          <div className='content-center pirata'>
-            <h3 className='row-span-2 p-5 text-6xl md:text-7xl lg:text-7xl items-center'>Selected Work</h3>
+    <section className='collection-list bg-[#131313] text-gray-text px-4 py-16 md:px-12 lg:px-14 z-[100]' id='SelectedWork'>
+        <div className='flex flex-row sm:flex-rows items-center justify-center'>
+          <div className='content-center'>
+            <h3 className='row-span-2 p-0 text-6xl md:text-7xl lg:text-7xl items-center'>Selected Work</h3>
           </div>
           <div className=''>
             <Image
           src="/snake2.png"
           alt='King Zmija'
-          width={500}
+          width={550}
+          height={400}
+          className="content-end items-end top-6  bg-right-bottom	bg-no-repeat bg-[length:165px_200px]"/> 
+          </div>
+          <div className=''>
+            <Image
+          src="/hebites.png"
+          alt='King Zmija'
+          width={300}
           height={300}
-          className='content-end items-end top-6'
-          /> 
+          className="content-end items-end top-6"/> 
           </div>
         </div>
 

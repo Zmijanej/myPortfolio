@@ -1,32 +1,13 @@
 'use client'
 import Image from 'next/image';
-import React, { useRef } from 'react';
 import Button from './ui/button';
 import Link from 'next/link';
-import { motion, useInView,useScroll, useTransform } from 'framer-motion';
 
 const About = () => {  
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-
-  const backgroundOpacity = useTransform(
-    scrollYProgress,
-    [0.10, 0.15, 0.20, 0.25, 0.30], // Scroll progress stages
-    [0.75, 0.80, 0.85, 0.90, 1] // Corresponding opacity values
-  );
-
-
-
+  
   return (
-      <motion.section 
-      ref={ref}
-      style={{ 
-        backgroundColor: "#131313",
-        opacity: backgroundOpacity 
-      }}
+      <section 
+    
       className="relative" >
       
         
@@ -89,7 +70,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

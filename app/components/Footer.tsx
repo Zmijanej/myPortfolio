@@ -98,7 +98,7 @@ const Footer:React.FC<FooterProps> = ({ footerRef }) => {
     <footer 
       id="Footer"
       ref={footerRef}
-      className={` py-16 px-6 md:px-12 flex flex-wrap flex-col md:flex-row items-center justify-between `}
+      className={` py-18 px-6 md:px-12 flex flex-wrap flex-col md:flex-row items-center justify-between `}
     >
       {/* Get in Touch Text Section */}
       <div className="w-full md:w-1/2 mb-10 md:mb-0 text-center md:text-left opacity-100 z-[100]">

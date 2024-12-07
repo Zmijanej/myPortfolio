@@ -22,7 +22,7 @@ const Background:React.FC<BackgroundProps> = ({footerRef}) => {
 
   const footerFadeIn = useTransform(
     footerScrollYProgress,
-    [1, 0.95, 0.90, 0.85, 0.80],
+    [1, 0.99, 0.98, 0.97, 0.96],
     [0.45, 0.35, 0.25, 0.15, 0]
   );
 
