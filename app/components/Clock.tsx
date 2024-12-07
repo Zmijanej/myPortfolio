@@ -58,7 +58,7 @@ const Clock: React.FC = () => {
 
     // Clean up the interval when the component is unmounted
     return () => clearInterval(timer);
-  }, []); 
+  }, [currentDateTime, displayDate, springDateCount, springMonthProgress]); 
 
   return (
     <motion.div 

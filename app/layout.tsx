@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import { Poppins, Cinzel,Cinzel_Decorative } from 'next/font/google';
+import { Cinzel,Cinzel_Decorative } from 'next/font/google';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const cinzel_Deco = Cinzel_Decorative({

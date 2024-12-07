@@ -1,7 +1,6 @@
 'use client'
 import React, { useRef } from 'react'
 import Footer from '../components/Footer';
-import Background from '../components/background';
 
 
 export default function ResumeLayout({ children }: { children: React.ReactNode }) {
