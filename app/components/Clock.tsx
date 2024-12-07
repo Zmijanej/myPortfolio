@@ -6,7 +6,7 @@ const padZero = (num: number): string => {
 };
 
 const Clock: React.FC = () => {
-  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  //const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
   // Short months array
   const shortMonths = [
@@ -17,48 +17,47 @@ const Clock: React.FC = () => {
   // Date spring animation
   const springDateCount = useSpring(0, { 
     bounce: 0,
-    duration: 4000,
+    duration: 1000,
   });
 
-  const [displayDate, setDisplayDate] = useState(padZero(currentDateTime.getDate()));
-
-  springDateCount.on('change', (value) => {
-    setDisplayDate(padZero(Math.round(value)));
-  });
+  const [displayDate, setDisplayDate] = useState('00');
 
   // Month spring animation
-  const springMonthProgress = useSpring(0, {
+  const springMonthCount = useSpring(0, {
     bounce: 0,
-    duration: 4000,
+    duration: 1000,
   });
 
-  const [displayMonth, setDisplayMonth] = useState(shortMonths[currentDateTime.getMonth()]);
-
-  springMonthProgress.on('change', (value) => {
-    setDisplayMonth(shortMonths[Math.round(value)]);
-  });
+  const [displayMonth, setDisplayMonth] = useState('Jan');
 
   // Effects to set initial and update values
   useEffect(() => {
-    // Set initial date
-    springDateCount.set(parseInt(displayDate, 10));
-    
-    // Set initial month
-    springMonthProgress.set(currentDateTime.getMonth());
+    // Set up listeners for spring animations
+    const dateUnsubscribe = springDateCount.on('change', (value) => {
+      setDisplayDate(padZero(Math.round(value)));
+    });
+
+    const monthUnsubscribe = springMonthCount.on('change', (value) => {
+      setDisplayMonth(shortMonths[Math.round(value)]);
+    });
 
     // Create an interval that updates the state every second
     const timer = setInterval(() => {
       const newDateTime = new Date();
-      setCurrentDateTime(newDateTime);
       
       // Update date and month springs
       springDateCount.set(newDateTime.getDate());
-      springMonthProgress.set(newDateTime.getMonth());
+      springMonthCount.set(newDateTime.getMonth());
+
     }, 1000);
 
-    // Clean up the interval when the component is unmounted
-    return () => clearInterval(timer);
-  }, [currentDateTime, displayDate, springDateCount, springMonthProgress]); 
+    // Clean up the interval and spring listeners when the component is unmounted
+    return () => {
+      clearInterval(timer);
+      dateUnsubscribe();
+      monthUnsubscribe();
+    };
+  }, []); 
 
   return (
     <motion.div 
