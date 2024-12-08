@@ -92,7 +92,7 @@ const ResponsiveNavbar = () => {
             text-[#f4ede5]
           `}
         >
-          Brend Zmijanej
+          ExploreAlb
         </Link>
         
         <div className='flex items-center gap-7 mx-14'>

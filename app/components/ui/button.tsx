@@ -1,3 +1,4 @@
+
 interface ButtonProps {
   text?: string;  // Making text optional with a default value
 }
@@ -5,10 +6,10 @@ interface ButtonProps {
 const Button = ({ text = "see more" }: ButtonProps)=> {
   
   return (
-      <button className='hero-sec-btn group'>
-        <span className='hero-sec-btn-span'>
+      <button className='flex justify-center items-center'>
+        <div className='border border-[#f4ede5] rounded-full px-4 py-2'>
           {text}
-        </span>
+        </div>
       </button>
     
   )

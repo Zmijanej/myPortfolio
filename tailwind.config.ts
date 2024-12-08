@@ -21,8 +21,18 @@ export default {
       fontFamily:{
         pirata:['var(--font-Pirata_One)'],
         poppins:['var(--font-Poppins)']
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        }
+      },
+      animation: {
+        marquee: 'marquee 15slinear infinite',
       }
   },
+  variants: {},
   plugins: [],
 }
 } satisfies Config;

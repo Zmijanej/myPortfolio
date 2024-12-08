@@ -1,5 +1,5 @@
 import { motion, useSpring } from 'framer-motion';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 const padZero = (num: number): string => {
   return num.toString().padStart(2, '0');
@@ -9,10 +9,10 @@ const Clock: React.FC = () => {
   //const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
   // Short months array
-  const shortMonths = [
+  const shortMonths = useMemo(() => [
     'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-  ];
+  ],[]);
 
   // Date spring animation
   const springDateCount = useSpring(0, { 
@@ -57,7 +57,7 @@ const Clock: React.FC = () => {
       dateUnsubscribe();
       monthUnsubscribe();
     };
-  }, []); 
+  }, [shortMonths, springDateCount, springMonthCount]); 
 
   return (
     <motion.div 
@@ -76,6 +76,7 @@ const Clock: React.FC = () => {
     >
       <div className="date">
         <motion.img
+        className="shadow-md"
           src="/star.png"
           alt="clock"
           width={40}

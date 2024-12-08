@@ -1,27 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-const Marquee = () => {
-  return (
-    <div className="marquee-text p-0">
-      <div className="marquee-text-track  p-0">
-        <p>JavaScript</p>
-        <p>TypeScript</p>
-        <p>CSS</p>
-        <p>TailwindCSS</p>
-        <p>Accessibility</p>
-        <p>React</p>
-        <p>Angular</p>
-        <p aria-hidden="true">JavaScript</p>
-        <p aria-hidden="true">TypeScript</p>
-        <p aria-hidden="true">CSS</p>
-        <p aria-hidden="true">TailwindCSS</p>
-        <p aria-hidden="true">Accessibility</p>
-        <p aria-hidden="true">React</p>
-        <p aria-hidden="true">Angular</p>
-        
-      </div>
-    </div>
-  )
+interface MarqueeProps {
+  text: string;
+  className?: string;
 }
 
-export default Marquee
+const Marquee: React.FC<MarqueeProps> = ({ text, className = '' }) => {
+  return (
+    <div className="w-full overflow-hidden">
+      <div className="animate-marquee whitespace-nowrap inline-block">
+        {text}
+      </div>
+    </div>
+  );
+};
+
+export default Marquee;

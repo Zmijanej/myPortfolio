@@ -6,10 +6,8 @@ const About = () => {
   
   return (
       <section 
-    
+      id='About'
       className="relative" >
-      
-        
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Left Column with Image and Illustration */}

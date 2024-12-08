@@ -31,24 +31,9 @@ html {
   }
 }
 
-.hero-sec-btn {
-  @apply w-[13em] h-[4.2em] bg-black text-xs cursor-pointer px-[0.25em] py-[0.1em] rounded-[0.3em] border-[0.08em] border-solid border-white z-0;
-}
-.hero-sec-btn-span {
-  @apply relative flex justify-center items-center w-[8.25em] h-[2.5em] bg-black text-[1.5em] text-white shadow-[0_0.4em_0.1em_0.019em_#fff] rounded-[0.2em] border-[0.08em] border-solid border-white bottom-[0.4em] hover:transition-all hover:duration-[0.5s] hover:translate-x-0 hover:translate-y-[0.4em] hover:shadow-[0_0_0_0_#fff] hover:bg-white hover:text-black z-0;
-}
-.hero-sec-btn-span:not(hover) {
-  @apply transition-all duration-[1s];
-}
 
- @media screen and (max-width: 767px) {
-  .hero-sec-btn {
-      width: 100%;
-  }
-  .hero-sec-btn-span {
-    width:100%;
-  }
-} 
+
+
 
 
 @keyframes slide {
